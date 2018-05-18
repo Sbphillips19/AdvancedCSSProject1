@@ -1,6 +1,7 @@
 /* sudo class- : */
 /* use to style based off a specific condition */
 .btn {
+  &,
   &:link,
   &:visited {
     text-transform: uppercase;
@@ -14,23 +15,25 @@
     transition: all 0.2s;
     position: relative;
     font-size: $default-font-size;
+
+    //Change for the <button> element
+    border: none;
+    cursor: pointer;
   }
 
-  /* sudo state that selects the state of the element */
-  /* :hover */
   &:hover {
     transform: translateY(-3px);
     box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
 
     &::after {
-      /* increasing the size of the original button */
       transform: scaleX(1.4) scaleY(1.6);
       opacity: 0;
     }
   }
 
-  /* active is when clicked */
-  &:active {
+  &:active,
+  &:focus {
+    outline: none;
     transform: translateY(-1px);
     box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
   }
